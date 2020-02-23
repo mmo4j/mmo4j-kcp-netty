@@ -4,6 +4,7 @@ import com.mmo4j.kcp.netty.internal.CodecOutputList
 import io.netty.buffer.ByteBuf
 
 object Utils {
+  @JvmStatic
   fun fireExceptionAndClose(channel: UkcpChannel, t: Throwable, close: Boolean) {
     channel.pipeline().fireExceptionCaught(t)
 
@@ -13,6 +14,7 @@ object Utils {
     }
   }
 
+  @JvmStatic
   fun fireChannelRead(channel: UkcpChannel, bufList: CodecOutputList<ByteBuf>) {
     val pipeline = channel.pipeline()
     val size = bufList.size

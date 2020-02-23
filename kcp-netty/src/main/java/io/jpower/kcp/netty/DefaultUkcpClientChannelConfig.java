@@ -1,6 +1,8 @@
 package io.jpower.kcp.netty;
 
 import com.mmo4j.kcp.netty.Consts;
+import com.mmo4j.kcp.netty.UkcpChannelConfig;
+import com.mmo4j.kcp.netty.UkcpClientChannelConfig;
 
 import java.net.DatagramSocket;
 import java.net.SocketException;

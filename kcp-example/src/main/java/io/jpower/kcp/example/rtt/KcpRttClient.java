@@ -1,7 +1,8 @@
 package io.jpower.kcp.example.rtt;
 
+import com.mmo4j.kcp.netty.UkcpChannel;
+
 import io.jpower.kcp.netty.ChannelOptionHelper;
-import io.jpower.kcp.netty.UkcpChannel;
 import io.jpower.kcp.netty.UkcpChannelOption;
 import io.jpower.kcp.netty.UkcpClientChannel;
 import io.netty.bootstrap.Bootstrap;

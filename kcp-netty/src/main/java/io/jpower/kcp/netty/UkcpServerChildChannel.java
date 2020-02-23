@@ -1,5 +1,8 @@
 package io.jpower.kcp.netty;
 
+import com.mmo4j.kcp.netty.UkcpChannel;
+import com.mmo4j.kcp.netty.UkcpChannelConfig;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;

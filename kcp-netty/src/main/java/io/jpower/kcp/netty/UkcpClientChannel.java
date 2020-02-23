@@ -1,6 +1,10 @@
 package io.jpower.kcp.netty;
 
 import com.mmo4j.kcp.netty.KcpException;
+import com.mmo4j.kcp.netty.KcpOutput;
+import com.mmo4j.kcp.netty.UkcpChannel;
+import com.mmo4j.kcp.netty.UkcpClientChannelConfig;
+import com.mmo4j.kcp.netty.Utils;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -10,7 +14,6 @@ import java.util.concurrent.TimeUnit;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.AbstractChannel;
-import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelMetadata;
 import io.netty.channel.ChannelOutboundBuffer;
@@ -20,7 +23,6 @@ import io.netty.channel.nio.NioEventLoop;
 import io.netty.util.internal.StringUtil;
 import io.netty.util.internal.logging.InternalLogger;
 import io.netty.util.internal.logging.InternalLoggerFactory;
-import com.mmo4j.kcp.netty.KcpOutput;
 
 /**
  * @author <a href="mailto:szhnet@gmail.com">szh</a>
@@ -107,12 +109,9 @@ public final class UkcpClientChannel extends AbstractChannel implements UkcpChan
 
   @Override
   protected void doRegister() throws Exception {
-    eventLoop().register(udpChannel).addListener(new ChannelFutureListener() {
-      @Override
-      public void operationComplete(ChannelFuture future) throws Exception {
-        if (!future.isSuccess()) {
-          forceClose(future.cause());
-        }
+    eventLoop().register(udpChannel).addListener((ChannelFutureListener) future -> {
+      if (!future.isSuccess()) {
+        forceClose(future.cause());
       }
     });
   }

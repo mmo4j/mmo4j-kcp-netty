@@ -1,6 +1,7 @@
 package io.jpower.kcp.example.echo;
 
-import io.jpower.kcp.netty.UkcpChannel;
+import com.mmo4j.kcp.netty.UkcpChannel;
+
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;

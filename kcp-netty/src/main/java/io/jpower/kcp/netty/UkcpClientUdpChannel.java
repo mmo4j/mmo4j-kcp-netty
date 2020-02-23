@@ -1,5 +1,8 @@
 package io.jpower.kcp.netty;
 
+import com.mmo4j.kcp.netty.Utils;
+import com.mmo4j.kcp.netty.internal.CodecOutputList;
+
 import java.io.IOException;
 import java.net.SocketAddress;
 import java.nio.ByteBuffer;
@@ -9,7 +12,6 @@ import java.nio.channels.spi.SelectorProvider;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mmo4j.kcp.netty.internal.CodecOutputList;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;
 import io.netty.channel.ChannelConfig;
