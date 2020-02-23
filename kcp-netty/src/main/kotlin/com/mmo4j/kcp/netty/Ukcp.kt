@@ -1,7 +1,6 @@
 package com.mmo4j.kcp.netty
 
 import io.jpower.kcp.netty.Kcp
-import io.jpower.kcp.netty.KcpOutput
 import io.netty.buffer.ByteBuf
 import io.netty.buffer.ByteBufAllocator
 import io.netty.channel.Channel
@@ -324,6 +323,7 @@ class Ukcp(conv: Int, output: KcpOutput) {
     kcp.logMonitor()
   }
 
+  @SuppressWarnings("unchecked")
   fun <T : Channel> channel(): T {
     return kcp.user as T
   }
@@ -344,14 +344,4 @@ class Ukcp(conv: Int, output: KcpOutput) {
   companion object {
     private val log = InternalLoggerFactory.getInstance(Ukcp::class.java)
   }
-}
-
-fun test() {
-  val limit = 500
-  val isEven = { x: Int -> x % 2 == 0 }
-  val sum = generateSequence(0) { it + 1}
-    .map { it * it }
-    .takeWhile { it < limit }
-    .filter { isEven(it) }
-    .fold(0) { sum, x -> sum + x }
 }

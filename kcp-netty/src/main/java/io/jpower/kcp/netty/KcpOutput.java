@@ -4,6 +4,7 @@ import io.netty.buffer.ByteBuf;
 
 /**
  * @author <a href="mailto:szhnet@gmail.com">szh</a>
+ * TODO: remove
  */
 public interface KcpOutput {
 

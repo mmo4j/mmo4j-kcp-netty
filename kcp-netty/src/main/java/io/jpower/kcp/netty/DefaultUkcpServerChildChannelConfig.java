@@ -1,5 +1,7 @@
 package io.jpower.kcp.netty;
 
+import com.mmo4j.kcp.netty.Consts;
+
 import java.util.Map;
 import java.util.Objects;
 

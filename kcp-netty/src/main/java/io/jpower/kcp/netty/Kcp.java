@@ -1,12 +1,14 @@
 package io.jpower.kcp.netty;
 
+import com.mmo4j.kcp.netty.KcpOutput;
+import com.mmo4j.kcp.netty.internal.ReusableLinkedList;
+import com.mmo4j.kcp.netty.internal.ReusableList;
+
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 
-import com.mmo4j.kcp.netty.internal.ReusableLinkedList;
-import com.mmo4j.kcp.netty.internal.ReusableList;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufAllocator;
 import io.netty.util.Recycler;

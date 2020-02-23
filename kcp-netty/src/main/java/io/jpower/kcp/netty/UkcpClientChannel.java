@@ -1,5 +1,7 @@
 package io.jpower.kcp.netty;
 
+import com.mmo4j.kcp.netty.KcpException;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
@@ -18,8 +20,7 @@ import io.netty.channel.nio.NioEventLoop;
 import io.netty.util.internal.StringUtil;
 import io.netty.util.internal.logging.InternalLogger;
 import io.netty.util.internal.logging.InternalLoggerFactory;
-
-import static io.jpower.kcp.netty.Consts.scheduleUpdateLog;
+import com.mmo4j.kcp.netty.KcpOutput;
 
 /**
  * @author <a href="mailto:szhnet@gmail.com">szh</a>
@@ -27,6 +28,7 @@ import static io.jpower.kcp.netty.Consts.scheduleUpdateLog;
 public final class UkcpClientChannel extends AbstractChannel implements UkcpChannel, Runnable {
 
   private static final InternalLogger log = InternalLoggerFactory.getInstance(UkcpClientChannel.class);
+  private static final InternalLogger scheduleUpdateLog = InternalLoggerFactory.getInstance("io.jpower.kcp.netty.scheduleUpdate");
 
   private static final ChannelMetadata METADATA = new ChannelMetadata(false);
 

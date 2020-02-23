@@ -2,6 +2,7 @@ package io.jpower.kcp.netty;
 
 /**
  * @author <a href="mailto:szhnet@gmail.com">szh</a>
+ * TODO: remove
  */
 public class KcpException extends RuntimeException {
 

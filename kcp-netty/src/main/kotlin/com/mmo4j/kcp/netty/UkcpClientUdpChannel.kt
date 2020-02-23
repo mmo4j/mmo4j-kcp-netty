@@ -20,10 +20,10 @@ import java.nio.channels.SelectionKey
 import java.nio.channels.spi.SelectorProvider
 import java.util.ArrayList
 
-internal class UkcpClientUdpChannel @JvmOverloads constructor(private val ukcpChannel: UkcpClientChannel, socket: DatagramChannel? = newSocket(DEFAULT_SELECTOR_PROVIDER)) : AbstractNioMessageChannel(null, socket, SelectionKey.OP_READ) {
+internal class UkcpClientUdpChannel @JvmOverloads constructor(private val ukcpChannel: UkcpClientChannel, socket: DatagramChannel = newSocket(DEFAULT_SELECTOR_PROVIDER)) : AbstractNioMessageChannel(null, socket, SelectionKey.OP_READ) {
   var inputShutdown = false
 
-  constructor(ukcpChannel: UkcpClientChannel, provider: SelectorProvider) : this(ukcpChannel, newSocket(provider)) {}
+  constructor(ukcpChannel: UkcpClientChannel, provider: SelectorProvider) : this(ukcpChannel, newSocket(provider))
 
   override fun metadata(): ChannelMetadata {
     return METADATA
@@ -70,7 +70,7 @@ internal class UkcpClientUdpChannel @JvmOverloads constructor(private val ukcpCh
 
   @Throws(Exception::class)
   override fun doConnect(remoteAddress: SocketAddress, localAddress: SocketAddress): Boolean {
-    localAddress?.let { doBind0(it) }
+    localAddress.let { doBind0(it) }
     var success = false
     return try {
       javaChannel().connect(remoteAddress)

@@ -6,6 +6,7 @@ import io.netty.util.internal.logging.InternalLoggerFactory;
 
 /**
  * @author <a href="mailto:szhnet@gmail.com">szh</a>
+ * TODO: remove
  */
 public class Consts {
 

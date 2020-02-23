@@ -1,5 +1,7 @@
 package io.jpower.kcp.netty;
 
+import com.mmo4j.kcp.netty.Consts;
+
 import java.net.DatagramSocket;
 import java.net.SocketException;
 import java.util.Map;
