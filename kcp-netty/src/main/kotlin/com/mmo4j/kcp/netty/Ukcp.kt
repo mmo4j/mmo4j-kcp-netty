@@ -345,3 +345,13 @@ class Ukcp(conv: Int, output: KcpOutput) {
     private val log = InternalLoggerFactory.getInstance(Ukcp::class.java)
   }
 }
+
+fun test() {
+  val limit = 500
+  val isEven = { x: Int -> x % 2 == 0 }
+  val sum = generateSequence(0) { it + 1}
+    .map { it * it }
+    .takeWhile { it < limit }
+    .filter { isEven(it) }
+    .fold(0) { sum, x -> sum + x }
+}
